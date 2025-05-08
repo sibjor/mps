@@ -9,51 +9,71 @@
 #include <iostream>
 #include <vector>
 #include <filesystem>
+#include <experimental/net>
 
-struct MUPUS
+class MUPUS
 {
-    struct License
-    {
-        const std::string license_head = "LICENSE";
-        const std::string filename = "LICENSE";
-        const std::string copyright_notice = "Copyright (c) 2025 " + Author().name + "\n";
-
-        struct Author
-        {
-
-            const std::string name = "Sixten Björling";
-            const std::string email = "sixten@sibjor.se";
-            const std::string website = "https://sibjor.se";
-            const std::string github_user_name = "sibjor";
-            const std::string nationality = "Kingdom of Sweden";
-        };
-
-        struct Licensor
-        {
-
-            static const std::string name;
-            static const std::string email;
-            static const std::string website;
-            static const std::string github_user_name;
-            static const std::string license;
-            static const std::string nationality;
-            static const std::string license_type;
-            static const std::string license_version;
-        };
-
-        struct LicenseType
-        {
-            const std::string open_source = "Open Source";
-        };
-    };
+public:
+private:
+    const std::string translate;
+    const std::string print;
+    const std::string open;
+    const std::string close;
+    const std::string read;
+    const std::string write;
+    const std::string update;
+    const std::string create;
+    const std::string copy;
+    const std::string cut;
+    const std::string paste;
+    const std::string save;
+    const std::string load;
+    const std::string insert;
+    const std::string remove;
+    const std::string sort;
+    const std::string filter;
+    const std::string locate;
 
     struct Syntax
     {
+        struct License
+        {
+            const std::string license_head = "LICENSE";
+            const std::string filename = "LICENSE";
+            const std::string copyright_notice = "Copyright (c) 2025 " + Author().name + "\n";
+
+            struct Author
+            {
+
+                const std::string name = "Sixten Björling";
+                const std::string email = "sixten@sibjor.se";
+                const std::string website = "https://sibjor.se";
+                const std::string github_user_name = "sibjor";
+                const std::string nationality = "Kingdom of Sweden";
+            };
+
+            struct Licensor
+            {
+
+                static const std::string name;
+                static const std::string email;
+                static const std::string website;
+                static const std::string github_user_name;
+                static const std::string license;
+                static const std::string nationality;
+                static const std::string license_type;
+                static const std::string license_version;
+            };
+
+            struct LicenseType
+            {
+                const std::string open_source = "Open Source";
+            };
+        };
         struct Keyword
         {
-
-            const std::string comment_open;
-            const std::string comment_close;
+            const std::string rename;
+            const std::string active;
 
             const std::string boolean;
             const std::string boolean_true;
@@ -88,7 +108,7 @@ struct MUPUS
             const std::string external;
             const std::string inside;
             const std::string itself;
-            
+
             const std::string file;
             const std::string text;
 
@@ -147,7 +167,6 @@ struct MUPUS
                 const std::string bottom_left;
                 const std::string bottom_right;
             };
-
         };
         struct Symbol
         {
@@ -157,9 +176,9 @@ struct MUPUS
             const std::string blankspace = " ";
             const std::string slash = "/";
             const std::string backslash = "\\";
-            const std::string comment = "//";
-            const std::string comment_block_close = "*/";
-            const std::string comment_block_open = "/*";
+            const std::string comment_open = "\"";
+            const std::string comment_close = "\"";
+            const std::string citation = "''";
             const std::string exclamation = "!";
             const std::string hash = "#";
             const std::string indentation = "    ";
@@ -215,28 +234,6 @@ struct MUPUS
             };
         };
     };
-    struct Function
-            {
-                const std::string translate;
-                const std::string print;
-                const std::string open;
-                const std::string close;
-                const std::string read;
-                const std::string write;
-                const std::string update;
-                const std::string create;
-                const std::string copy;
-                const std::string cut;
-                const std::string paste;
-                const std::string save;
-                const std::string load;
-                const std::string insert;
-                const std::string remove;
-                const std::string sort;
-                const std::string filter;
-                const std::string locate;
-            };
-
 };
 struct ForeginSyntax
 {
