@@ -1,0 +1,9 @@
+[submodule "third-party/SDL"]
+	path = third-party/SDL
+	url = git@github.com:libsdl-org/SDL.git
+[submodule "third-party/RmlUi"]
+	path = third-party/RmlUi
+	url = git@github.com:mikke89/RmlUi.git
+[submodule "third-party/freetype"]
+	path = third-party/freetype
+	url = git@github.com:freetype/freetype.git
