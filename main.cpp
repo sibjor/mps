@@ -12,6 +12,10 @@
 
 class MUPUS
 {
+    std::string blankspace = " ";
+    std::string newline = "\n";
+    std::string indentation = "\t";
+    
     struct ForeginSyntax
     {
         struct Markup
@@ -210,9 +214,7 @@ class MUPUS
                 std::string keyframes;
             };
         };
-        struct CPP
-        {
-            struct C
+        struct C
             {
                 std::string semicolon = ";";
                 std::string open_brace = "{";
@@ -295,107 +297,9 @@ class MUPUS
                 std::string kw_static_assert = "_Static_assert";
                 std::string kw_thread_local = "_Thread_local";
             };
-        };
-        struct Python
+        struct CPP
         {
-            std::string def = "def";
-            std::string return_kw = "return";
-            std::string if_kw = "if";
-            std::string elif_kw = "elif";
-            std::string else_kw = "else";
-            std::string for_kw = "for";
-            std::string while_kw = "while";
-            std::string break_kw = "break";
-            std::string continue_kw = "continue";
-            std::string pass_kw = "pass";
-            std::string import_kw = "import";
-            std::string from_kw = "from";
-            std::string as_kw = "as";
-            std::string class_kw = "class";
-            std::string try_kw = "try";
-            std::string except_kw = "except";
-            std::string finally_kw = "finally";
-            std::string raise_kw = "raise";
-            std::string with_kw = "with";
-            std::string lambda_kw = "lambda";
-            std::string global_kw = "global";
-            std::string nonlocal_kw = "nonlocal";
-            std::string assert_kw = "assert";
-            std::string del_kw = "del";
-            std::string yield_kw = "yield";
-            std::string async_kw = "async";
-            std::string await_kw = "await";
-            std::string True_kw = "True";
-            std::string False_kw = "False";
-            std::string None_kw = "None";
-            std::string and_kw = "and";
-            std::string or_kw = "or";
-            std::string not_kw = "not";
-            std::string is_kw = "is";
-            std::string in_kw = "in";
-            std::string print_func = "print";
-            std::string input_func = "input";
-            std::string len_func = "len";
-            std::string range_func = "range";
-            std::string open_func = "open";
-            std::string int_func = "int";
-            std::string float_func = "float";
-            std::string str_func = "str";
-            std::string list_func = "list";
-            std::string dict_func = "dict";
-            std::string set_func = "set";
-            std::string tuple_func = "tuple";
-            std::string bool_func = "bool";
-            std::string type_func = "type";
-            std::string id_func = "id";
-            std::string dir_func = "dir";
-            std::string help_func = "help";
-            std::string abs_func = "abs";
-            std::string pow_func = "pow";
-            std::string round_func = "round";
-            std::string sorted_func = "sorted";
-            std::string zip_func = "zip";
-            std::string map_func = "map";
-            std::string filter_func = "filter";
-            std::string any_func = "any";
-            std::string all_func = "all";
-            std::string sum_func = "sum";
-            std::string min_func = "min";
-            std::string max_func = "max";
-            std::string enumerate_func = "enumerate";
-            std::string eval_func = "eval";
-            std::string exec_func = "exec";
-            std::string isinstance_func = "isinstance";
-            std::string issubclass_func = "issubclass";
-            std::string hasattr_func = "hasattr";
-            std::string getattr_func = "getattr";
-            std::string setattr_func = "setattr";
-            std::string delattr_func = "delattr";
-            std::string format_func = "format";
-            std::string repr_func = "repr";
-            std::string hash_func = "hash";
-            std::string bin_func = "bin";
-            std::string oct_func = "oct";
-            std::string hex_func = "hex";
-            std::string chr_func = "chr";
-            std::string ord_func = "ord";
-            std::string ascii_func = "ascii";
-            std::string bytes_func = "bytes";
-            std::string bytearray_func = "bytearray";
-            std::string memoryview_func = "memoryview";
-            std::string complex_func = "complex";
-            std::string divmod_func = "divmod";
-            std::string frozenset_func = "frozenset";
-            std::string iter_func = "iter";
-            std::string next_func = "next";
-            std::string reversed_func = "reversed";
-            std::string slice_func = "slice";
-            std::string vars_func = "vars";
-            std::string globals_func = "globals";
-            std::string locals_func = "locals";
-            std::string compile_func = "compile";
-            std::string callable_func = "callable";
-            std::string del_func = "del";
+            
         };
         struct JavaScript
         {
@@ -969,6 +873,131 @@ class MUPUS
             std::string kw_false = "false";
             std::string kw_null = "null";
         };
+        struct Python
+        {
+            std::string def = "def";
+            std::string return_kw = "return";
+            std::string if_kw = "if";
+            std::string elif_kw = "elif";
+            std::string else_kw = "else";
+            std::string for_kw = "for";
+            std::string while_kw = "while";
+            std::string break_kw = "break";
+            std::string continue_kw = "continue";
+            std::string pass_kw = "pass";
+            std::string import_kw = "import";
+            std::string from_kw = "from";
+            std::string as_kw = "as";
+            std::string class_kw = "class";
+            std::string try_kw = "try";
+            std::string except_kw = "except";
+            std::string finally_kw = "finally";
+            std::string raise_kw = "raise";
+            std::string with_kw = "with";
+            std::string lambda_kw = "lambda";
+            std::string global_kw = "global";
+            std::string nonlocal_kw = "nonlocal";
+            std::string assert_kw = "assert";
+            std::string del_kw = "del";
+            std::string yield_kw = "yield";
+            std::string async_kw = "async";
+            std::string await_kw = "await";
+            std::string True_kw = "True";
+            std::string False_kw = "False";
+            std::string None_kw = "None";
+            std::string and_kw = "and";
+            std::string or_kw = "or";
+            std::string not_kw = "not";
+            std::string is_kw = "is";
+            std::string in_kw = "in";
+            std::string print_func = "print";
+            std::string input_func = "input";
+            std::string len_func = "len";
+            std::string range_func = "range";
+            std::string open_func = "open";
+            std::string int_func = "int";
+            std::string float_func = "float";
+            std::string str_func = "str";
+            std::string list_func = "list";
+            std::string dict_func = "dict";
+            std::string set_func = "set";
+            std::string tuple_func = "tuple";
+            std::string bool_func = "bool";
+            std::string type_func = "type";
+            std::string id_func = "id";
+            std::string dir_func = "dir";
+            std::string help_func = "help";
+            std::string abs_func = "abs";
+            std::string pow_func = "pow";
+            std::string round_func = "round";
+            std::string sorted_func = "sorted";
+            std::string zip_func = "zip";
+            std::string map_func = "map";
+            std::string filter_func = "filter";
+            std::string any_func = "any";
+            std::string all_func = "all";
+            std::string sum_func = "sum";
+            std::string min_func = "min";
+            std::string max_func = "max";
+            std::string enumerate_func = "enumerate";
+            std::string eval_func = "eval";
+            std::string exec_func = "exec";
+            std::string isinstance_func = "isinstance";
+            std::string issubclass_func = "issubclass";
+            std::string hasattr_func = "hasattr";
+            std::string getattr_func = "getattr";
+            std::string setattr_func = "setattr";
+            std::string delattr_func = "delattr";
+            std::string format_func = "format";
+            std::string repr_func = "repr";
+            std::string hash_func = "hash";
+            std::string bin_func = "bin";
+            std::string oct_func = "oct";
+            std::string hex_func = "hex";
+            std::string chr_func = "chr";
+            std::string ord_func = "ord";
+            std::string ascii_func = "ascii";
+            std::string bytes_func = "bytes";
+            std::string bytearray_func = "bytearray";
+            std::string memoryview_func = "memoryview";
+            std::string complex_func = "complex";
+            std::string divmod_func = "divmod";
+            std::string frozenset_func = "frozenset";
+            std::string iter_func = "iter";
+            std::string next_func = "next";
+            std::string reversed_func = "reversed";
+            std::string slice_func = "slice";
+            std::string vars_func = "vars";
+            std::string globals_func = "globals";
+            std::string locals_func = "locals";
+            std::string compile_func = "compile";
+            std::string callable_func = "callable";
+            std::string del_func = "del";
+        };
+        struct Kotlin
+        {
+            std::string kw_fun = "fun";
+            std::string kw_val = "val";
+            std::string kw_var = "var";
+            std::string kw_class = "class";
+            std::string kw_object = "object";
+            std::string kw_interface = "interface";
+            std::string kw_enum = "enum";
+            std::string kw_data = "data";
+            std::string kw_sealed = "sealed";
+            std::string kw_if = "if";
+            std::string kw_else = "else";
+            std::string kw_when = "when";
+            std::string kw_for = "for";
+            std::string kw_while = "while";
+            std::string kw_do = "do";
+            std::string kw_return = "return";
+            std::string kw_break = "break";
+            std::string kw_continue = "continue";
+            std::string kw_true = "true";
+            std::string kw_false = "false";
+            std::string kw_null = "null";
+        };
         struct Ruby
         {
             std::string kw_def = "def";
@@ -1019,30 +1048,6 @@ class MUPUS
             std::string kw_true = "true";
             std::string kw_false = "false";
             std::string kw_nil = "nil";
-        };
-        struct Kotlin
-        {
-            std::string kw_fun = "fun";
-            std::string kw_val = "val";
-            std::string kw_var = "var";
-            std::string kw_class = "class";
-            std::string kw_object = "object";
-            std::string kw_interface = "interface";
-            std::string kw_enum = "enum";
-            std::string kw_data = "data";
-            std::string kw_sealed = "sealed";
-            std::string kw_if = "if";
-            std::string kw_else = "else";
-            std::string kw_when = "when";
-            std::string kw_for = "for";
-            std::string kw_while = "while";
-            std::string kw_do = "do";
-            std::string kw_return = "return";
-            std::string kw_break = "break";
-            std::string kw_continue = "continue";
-            std::string kw_true = "true";
-            std::string kw_false = "false";
-            std::string kw_null = "null";
         };
     };
 };
