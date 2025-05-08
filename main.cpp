@@ -57,11 +57,11 @@ struct SyntaxDefenition
                                      "mailto:"
                                      "file://"
                                      "url://";
+            const std::string reference = "ref"
+                                          "reference"
+                                          "refer"
+                                          "@";
         };
-        const std::string reference = "ref"
-                                      "reference"
-                                      "refer"
-                                      "@";
         struct Symbol
         {
             const std::string delivery = "-->";
@@ -130,12 +130,14 @@ struct SyntaxDefenition
             const std::string function = "func"
                                          "meth";
             const std::string collection = "collection"
-                                         "list"
-                                         "array"
-                                         "map"
-                                         "set"
-                                         "dict"
-                                         "vector";
+                                           "list"
+                                           "array"
+                                           "map"
+                                           "set"
+                                           "dict"
+                                           "vector";
+            const std::string random = "random"
+                                       "rand";
         };
 
         struct Selection
@@ -192,11 +194,34 @@ struct SyntaxDefenition
                                        "current";
         };
 
+        struct Action
+        {
+            const std::string return_value = "return"
+                                             "export";
+            const std::string action = "action"
+                                       "act";
+            const std::string execute = "execute"
+                                        "run";
+            const std::string perform = "perform";
+            const std::string apply = "apply";
+            const std::string send = "send";
+            const std::string receive = "receive";
+            const std::string request = "request";
+            const std::string respond = "respond";
+        };
+
         struct File
         {
             const std::string file = "file";
             const std::string file_format = "file_format"
                                             "filetype";
+        };
+
+        struct Document
+        {
+            const std::string document = "document"
+                                         "doc"
+                                         "script";
             const std::string text = "text";
             const std::string syntax = "syntax"
                                        "code";
@@ -213,9 +238,8 @@ struct SyntaxDefenition
                                       "clip";
             const std::string audio = "audio"
                                       "sound";
-            const std::string document = "document"
-                                         "doc"
-                                         "script";
+            const std::string buffer = "buffer"
+                                       "stream";
         };
 
         struct Path
@@ -360,6 +384,14 @@ struct SyntaxDefenition
             const std::string sort = "sort";
             const std::string filter = "filter";
 
+            struct Generate
+            {
+                const std::string generate_random = "generate_random";
+                const std::string generate_license = "generate_license";
+                const std::string generate_hash = "generate_hash";
+                const std::string generate_name = "generate_name";
+                const std::string generate_uuid = "generate_uuid";
+            };
             struct FileSystem
             {
                 const std::string open = "open";
@@ -418,6 +450,13 @@ struct SyntaxDefenition
                 const std::string round = "round";
                 const std::string floor = "floor";
                 const std::string ceil = "ceil";
+            };
+            struct Time
+            {
+                const std::string sleep = "sleep";
+                const std::string wait = "wait";
+                const std::string delay = "delay";
+                const std::string timer = "timer";
             };
         };
     };
@@ -583,37 +622,37 @@ struct SyntaxDefenition
     struct CSS
     {
 
-        const std::string color;
-        const std::string background_color;
-        const std::string font_size;
-        const std::string font_family;
-        const std::string margin;
-        const std::string padding;
-        const std::string border;
-        const std::string width;
-        const std::string height;
-        const std::string display;
-        const std::string position;
-        const std::string top;
-        const std::string left;
-        const std::string right;
-        const std::string bottom;
-        const std::string z_index;
-        const std::string overflow;
-        const std::string text_align;
-        const std::string vertical_align;
-        const std::string line_height;
-        const std::string box_shadow;
-        const std::string border_radius;
-        const std::string opacity;
-        const std::string visibility;
-        const std::string cursor;
-        const std::string transition;
-        const std::string transform;
-        const std::string content;
-        const std::string clip_path;
-        const std::string animation;
-        const std::string keyframes;
+        const std::string color = "color";
+        const std::string background_color = "background-color";
+        const std::string font_size = "font-size";
+        const std::string font_family = "font-family";
+        const std::string margin = "margin";
+        const std::string padding = "padding";
+        const std::string border = "border";
+        const std::string width = "width";
+        const std::string height = "height";
+        const std::string display = "display";
+        const std::string position = "position";
+        const std::string top = "top";
+        const std::string left = "left";
+        const std::string right = "right";
+        const std::string bottom = "bottom";
+        const std::string z_index = "z-index";
+        const std::string overflow = "overflow";
+        const std::string text_align = "text-align";
+        const std::string vertical_align = "vertical-align";
+        const std::string line_height = "line-height";
+        const std::string box_shadow = "box-shadow";
+        const std::string border_radius = "border-radius";
+        const std::string opacity = "opacity";
+        const std::string visibility = "visibility";
+        const std::string cursor = "cursor";
+        const std::string transition = "transition";
+        const std::string transform = "transform";
+        const std::string content = "content";
+        const std::string clip_path = "clip-path";
+        const std::string animation = "animation";
+        const std::string keyframes = "@keyframes";
     };
 
     struct SQL
