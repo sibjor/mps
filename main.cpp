@@ -51,51 +51,102 @@ struct MUPUS
     {
         struct Keyword
         {
-            const std::string comment_single_line;
-            const std::string comment_multi_line;
+
+            const std::string comment_open;
+            const std::string comment_close;
+
+            const std::string boolean;
+            const std::string boolean_true;
+            const std::string boolean_false;
+
             const std::string variable;
             const std::string function;
-            const std::string struct_mps;
-            
-            /* Here goes Markup */
-            const std::string h1;
-            const std::string h2;
-            const std::string h3;
-            const std::string h4;
-            const std::string h5;
-            const std::string h6;
-            const std::string paragraph;
-            const std::string bold;
-            const std::string italic;
-            const std::string underline;
-            const std::string strikethrough;
-            const std::string code_block;
-            const std::string link_url;
-            const std::string link_path;
-            const std::string link_document_external;
-            const std::string link_document_internal;
-            const std::string link_email;
+            const std::string array;
 
-            /* Here goes styling */
-            const std::string colour;
-            const std::string background_color;
-            const std::string font_size;
-            const std::string font_family;
-            const std::string margin;
-            const std::string padding;
-            const std::string border;
-            const std::string width;
-            const std::string height;
-            const std::string picture;
-            const std::string position;
-            const std::string top;
-            const std::string left;
-            const std::string right;
-            const std::string bottom;
-            const std::string top_left;
-            const std::string top_right;
-            const std::string bottom_left;
-            const std::string bottom_right;
+            const std::string single;
+            const std::string multiple;
+
+            const std::string select;
+            const std::string selection;
+            const std::string all;
+            const std::string first;
+            const std::string last;
+            const std::string next;
+            const std::string previous;
+            const std::string from;
+            const std::string until;
+
+            const std::string ascending;
+            const std::string descending;
+
+            const std::string node;
+            const std::string instance;
+            const std::string root;
+            const std::string predecessor;
+            const std::string successor;
+
+            const std::string external;
+            const std::string inside;
+            const std::string itself;
+            
+            const std::string file;
+            const std::string text;
+
+            struct Markup
+            {
+                const std::string h1;
+                const std::string h2;
+                const std::string h3;
+                const std::string h4;
+                const std::string h5;
+                const std::string h6;
+                const std::string paragraph;
+                const std::string bold;
+                const std::string italic;
+                const std::string underline;
+                const std::string strikethrough;
+                const std::string code_block;
+                const std::string link;
+                const std::string path;
+
+                struct Diagram
+                {
+                    const std::string graph;
+                    const std::string node;
+                    const std::string link;
+                    const std::string socket;
+                    const std::string edge;
+                    const std::string direction;
+                    const std::string arrow;
+                    const std::string label;
+                };
+            };
+
+            struct Style
+            {
+                const std::string theme;
+                const std::string opacity;
+                const std::string font;
+                const std::string colour;
+                const std::string background_color;
+                const std::string size;
+                const std::string genre;
+                const std::string margin;
+                const std::string padding;
+                const std::string border;
+                const std::string width;
+                const std::string height;
+                const std::string picture;
+                const std::string position;
+                const std::string top;
+                const std::string left;
+                const std::string right;
+                const std::string bottom;
+                const std::string top_left;
+                const std::string top_right;
+                const std::string bottom_left;
+                const std::string bottom_right;
+            };
 
         };
         struct Symbol
@@ -164,12 +215,28 @@ struct MUPUS
             };
         };
     };
+    struct Function
+            {
+                const std::string translate;
+                const std::string print;
+                const std::string open;
+                const std::string close;
+                const std::string read;
+                const std::string write;
+                const std::string update;
+                const std::string create;
+                const std::string copy;
+                const std::string cut;
+                const std::string paste;
+                const std::string save;
+                const std::string load;
+                const std::string insert;
+                const std::string remove;
+                const std::string sort;
+                const std::string filter;
+                const std::string locate;
+            };
 
-    struct License
-    {
-
-        const std::string begin_license = "LICENSE\n";
-    };
 };
 struct ForeginSyntax
 {
