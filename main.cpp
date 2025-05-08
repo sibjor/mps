@@ -10,25 +10,25 @@
 #include <vector>
 #include <filesystem>
 
-class MUPUS
+struct MUPUS
 {
-public:
-    class License
+
+    struct License
     {
-    public:
         const std::string copyright_notice = "Copyright (c) 2025 " + Author().name + "\n";
-        class Author
+        
+        struct Author
         {
-        public:
+
             const std::string name = "Sixten Björling";
             const std::string email = "sixten@sibjor.se";
             const std::string website = "https://sibjor.se";
             const std::string github_user_name = "sibjor";
         };
 
-        class Licensor
+        struct Licensor
         {
-        public:
+
             static const std::string name;
             static const std::string email;
             static const std::string website;
@@ -37,12 +37,12 @@ public:
         };
     };
 
-    class Syntax
+    struct Syntax
     {
-    public:
-        class Symbols
+
+        struct Symbols
         {
-        public:
+
             const std::string ampersand = "&";
             const std::string asterisk = "*";
             const std::string at = "@";
@@ -64,7 +64,7 @@ public:
             const std::string colon = ":";
             const std::string comma = ",";
             const std::string open_brace = "{";
-            const std::string close_brace = "public:}";
+            const std::string close_brace = "}";
             const std::string open_bracket = "[";
             const std::string close_bracket = "]";
             const std::string open_parenthesis = "(";
@@ -72,9 +72,9 @@ public:
             const std::string single_quote = "'";
             const std::string double_quote = "\"";
 
-            class Math
+            struct Math
             {
-            public:
+
                 const std::string divide = "/";
                 const std::string minus = "-";
                 const std::string modulus = "%";
@@ -82,9 +82,9 @@ public:
                 const std::string plus = "+";
             };
 
-            class Operator
+            struct Operator
             {
-            public:
+
                 const std::string equals = "=";
                 const std::string not_equals = "!=";
                 const std::string greater_than = ">";
@@ -95,9 +95,9 @@ public:
                 const std::string logical_or = "||";
             };
 
-            class Path
+            struct Path
             {
-            public:
+
                 const std::string tilde = "~";
                 const std::string dot = ".";
                 const std::string double_dot = "..";
@@ -106,21 +106,21 @@ public:
             };
         };
 
-        class License
+        struct License
         {
-        public:
+
             const std::string begin_license = "LICENSE\n";
         };
     };
-    class ForeginSyntax
+    struct ForeginSyntax
     {
-    public:
-        class Markup
+
+        struct Markup
         {
-        public:
-            class HTML
+
+            struct HTML
             {
-            public:
+
                 const std::string doctype = "<!DOCTYPE html>";
                 const std::string html = "<html>";
                 const std::string head = "<head>";
@@ -248,9 +248,9 @@ public:
                 const std::string template_close = "</template>";
                 const std::string slot = "<slot>";
             };
-            class Markdown
+            struct Markdown
             {
-            public:
+
                 const std::string h1 = "# ";
                 const std::string h2 = "## ";
                 const std::string h3 = "### ";
@@ -277,12 +277,12 @@ public:
                 const std::string line_break = "\n";
             };
         };
-        class Style
+        struct Style
         {
-        public:
-            class CSS
+
+            struct CSS
             {
-            public:
+
                 const std::string color;
                 const std::string background_color;
                 const std::string font_size;
@@ -316,12 +316,11 @@ public:
                 const std::string keyframes;
             };
         };
-        class C
+        struct C
         {
-        public:
             const std::string semicolon = ";";
             const std::string open_brace = "{";
-            const std::string close_brace = "public:}";
+            const std::string close_brace = "}";
             const std::string open_parenthesis = "(";
             const std::string close_parenthesis = ")";
             const std::string open_bracket = "[";
@@ -400,9 +399,9 @@ public:
             const std::string kw_static_assert = "_Static_assert";
             const std::string kw_thread_local = "_Thread_local";
         };
-        class CPP
+        struct CPP
         {
-        public:
+
             const std::string semicolon = ";";
             const std::string open_brace = "{";
             const std::string close_brace = "}";
@@ -519,9 +518,9 @@ public:
             const std::string kw_wchar_t = "wchar_t";
             const std::string kw_while = "while";
         };
-        class JavaScript
+        struct JavaScript
         {
-        public:
+
             const std::string var = "var";
             const std::string let = "let";
             const std::string const_kw = "const";
@@ -661,9 +660,9 @@ public:
             const std::string any_func = "any";
             const std::string allSettled_func = "allSettled";
         };
-        class TypeScript
+        struct TypeScript
         {
-        public:
+
             const std::string let = "let";
             const std::string const_kw = "const";
             const std::string var = "var";
@@ -824,9 +823,9 @@ public:
             const std::string any_func = "any";
             const std::string allSettled_func = "allSettled";
         };
-        class Java
+        struct Java
         {
-        public:
+
             const std::string kw_abstract = "abstract";
             const std::string kw_assert = "assert";
             const std::string kw_boolean = "boolean";
@@ -888,9 +887,9 @@ public:
             const std::string kw_permits = "permits";
             const std::string kw_non_sealed = "non-sealed";
         };
-        class CSharp
+        struct CSharp
         {
-        public:
+
             const std::string kw_abstract = "abstract";
             const std::string kw_as = "as";
             const std::string kw_base = "base";
@@ -999,9 +998,9 @@ public:
             const std::string kw_ascending = "ascending";
             const std::string kw_descending = "descending";
         };
-        class Go
+        struct Go
         {
-        public:
+
             const std::string kw_package = "package";
             const std::string kw_import = "import";
             const std::string kw_func = "func";
@@ -1030,9 +1029,9 @@ public:
             const std::string kw_true = "true";
             const std::string kw_false = "false";
         };
-        class Rust
+        struct Rust
         {
-        public:
+
             const std::string kw_fn = "fn";
             const std::string kw_let = "let";
             const std::string kw_mut = "mut";
@@ -1064,9 +1063,9 @@ public:
             const std::string kw_true = "true";
             const std::string kw_false = "false";
         };
-        class PHP
+        struct PHP
         {
-        public:
+
             const std::string kw_php_open = "<?php";
             const std::string kw_php_close = "?>";
             const std::string kw_echo = "echo";
@@ -1098,9 +1097,9 @@ public:
             const std::string kw_false = "false";
             const std::string kw_null = "null";
         };
-        class Python
+        struct Python
         {
-        public:
+
             const std::string def = "def";
             const std::string return_kw = "return";
             const std::string if_kw = "if";
@@ -1200,9 +1199,9 @@ public:
             const std::string callable_func = "callable";
             const std::string del_func = "del";
         };
-        class Kotlin
+        struct Kotlin
         {
-        public:
+
             const std::string kw_fun = "fun";
             const std::string kw_val = "val";
             const std::string kw_var = "var";
@@ -1225,9 +1224,9 @@ public:
             const std::string kw_false = "false";
             const std::string kw_null = "null";
         };
-        class Ruby
+        struct Ruby
         {
-        public:
+
             const std::string kw_def = "def";
             const std::string kw_end = "end";
             const std::string kw_class = "class";
@@ -1251,9 +1250,9 @@ public:
             const std::string kw_false = "false";
             const std::string kw_nil = "nil";
         };
-        class Swift
+        struct Swift
         {
-        public:
+
             const std::string kw_func = "func";
             const std::string kw_let = "let";
             const std::string kw_var = "var";
