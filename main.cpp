@@ -11,168 +11,62 @@
 #include <filesystem>
 #include <experimental/net>
 
-class MUPUS
+struct License
 {
-public:
-private:
-    const std::string translate;
-    const std::string print;
-    const std::string open;
-    const std::string close;
-    const std::string read;
-    const std::string write;
-    const std::string update;
-    const std::string create;
-    const std::string copy;
-    const std::string cut;
-    const std::string paste;
-    const std::string save;
-    const std::string load;
-    const std::string insert;
-    const std::string remove;
-    const std::string sort;
-    const std::string filter;
-    const std::string locate;
+    const std::string license_head = "LICENSE";
+    const std::string filename = "LICENSE";
 
-    struct Syntax
+    struct Author
     {
-        struct License
+
+        const std::string name = "Sixten Björling";
+        const std::string email = "sixten@sibjor.se";
+        const std::string website = "https://sibjor.se";
+        const std::string github_user_name = "sibjor";
+        const std::string nationality = "Kingdom of Sweden";
+    };
+
+    struct Licensor
+    {
+
+        static const std::string name;
+        static const std::string email;
+        static const std::string website;
+        static const std::string github_user_name;
+        static const std::string license;
+        static const std::string nationality;
+        static const std::string license_type;
+        static const std::string license_version;
+    };
+
+    struct LicenseType
+    {
+        const std::string open_source = "Open Source";
+    };
+};
+struct SyntaxDefenition
+{
+    struct MUPUS
+    {
+        struct Link
         {
-            const std::string license_head = "LICENSE";
-            const std::string filename = "LICENSE";
-            const std::string copyright_notice = "Copyright (c) 2025 " + Author().name + "\n";
-
-            struct Author
-            {
-
-                const std::string name = "Sixten Björling";
-                const std::string email = "sixten@sibjor.se";
-                const std::string website = "https://sibjor.se";
-                const std::string github_user_name = "sibjor";
-                const std::string nationality = "Kingdom of Sweden";
-            };
-
-            struct Licensor
-            {
-
-                static const std::string name;
-                static const std::string email;
-                static const std::string website;
-                static const std::string github_user_name;
-                static const std::string license;
-                static const std::string nationality;
-                static const std::string license_type;
-                static const std::string license_version;
-            };
-
-            struct LicenseType
-            {
-                const std::string open_source = "Open Source";
-            };
+            const std::string link = "http://"
+                                     "www."
+                                     "https://"
+                                     "ftp://"
+                                     "mailto:"
+                                     "file://"
+                                     "url://";
         };
-        struct Keyword
-        {
-            const std::string rename;
-            const std::string active;
-
-            const std::string boolean;
-            const std::string boolean_true;
-            const std::string boolean_false;
-
-            const std::string variable;
-            const std::string function;
-            const std::string array;
-
-            const std::string single;
-            const std::string multiple;
-
-            const std::string select;
-            const std::string selection;
-            const std::string all;
-            const std::string first;
-            const std::string last;
-            const std::string next;
-            const std::string previous;
-            const std::string from;
-            const std::string until;
-
-            const std::string ascending;
-            const std::string descending;
-
-            const std::string node;
-            const std::string instance;
-            const std::string root;
-            const std::string predecessor;
-            const std::string successor;
-
-            const std::string external;
-            const std::string inside;
-            const std::string itself;
-
-            const std::string file;
-            const std::string text;
-
-            struct Markup
-            {
-                const std::string h1;
-                const std::string h2;
-                const std::string h3;
-                const std::string h4;
-                const std::string h5;
-                const std::string h6;
-                const std::string paragraph;
-                const std::string bold;
-                const std::string italic;
-                const std::string underline;
-                const std::string strikethrough;
-                const std::string code_block;
-                const std::string link;
-                const std::string path;
-
-                struct Diagram
-                {
-                    const std::string graph;
-                    const std::string node;
-                    const std::string link;
-                    const std::string socket;
-                    const std::string edge;
-                    const std::string direction;
-                    const std::string arrow;
-                    const std::string label;
-                };
-            };
-
-            struct Style
-            {
-                const std::string theme;
-                const std::string opacity;
-                const std::string font;
-                const std::string colour;
-                const std::string background_color;
-                const std::string size;
-                const std::string genre;
-                const std::string margin;
-                const std::string padding;
-                const std::string border;
-                const std::string width;
-                const std::string height;
-                const std::string picture;
-                const std::string position;
-                const std::string top;
-                const std::string left;
-                const std::string right;
-                const std::string bottom;
-                const std::string top_left;
-                const std::string top_right;
-                const std::string bottom_left;
-                const std::string bottom_right;
-            };
-        };
+        const std::string reference = "ref"
+                                      "reference"
+                                      "refer"
+                                      "@";
         struct Symbol
         {
+            const std::string delivery = "-->";
             const std::string ampersand = "&";
             const std::string asterisk = "*";
-            const std::string at = "@";
             const std::string blankspace = " ";
             const std::string slash = "/";
             const std::string backslash = "\\";
@@ -181,7 +75,7 @@ private:
             const std::string citation = "''";
             const std::string exclamation = "!";
             const std::string hash = "#";
-            const std::string indentation = "    ";
+            const std::string indentation_spacebar = "    ";
             const std::string indentation_syntax = "\t";
             const std::string newline_syntax = "\n";
             const std::string percent = "%";
@@ -198,246 +92,608 @@ private:
             const std::string close_parenthesis = ")";
             const std::string single_quote = "'";
             const std::string double_quote = "\"";
+            const std::string code_block = "```";
+        };
 
+        struct Context
+        {
+            const std::string active = "ACTIVE"
+                                       "INCLUDING"
+                                       "ACTIVE"
+                                       "INCLUDE"
+                                       "INCLUDED";
+            const std::string end = "END OF"
+                                    "END"
+                                    "QUIT"
+                                    "EXIT"
+                                    "STOP";
+            const std::string begin = "BEGIN"
+                                      "START"
+                                      "INIT"
+                                      "NEW";
+        };
+
+        struct Condition
+        {
+            const std::string true_mps = "true"
+                                         "positive"
+                                         "correct";
+            const std::string false_mps = "false"
+                                          "negative"
+                                          "incorrect";
+        };
+
+        struct Variable
+        {
+            const std::string variable = "variable"
+                                         "var";
+            const std::string function = "func"
+                                         "meth";
+            const std::string collection = "collection"
+                                         "list"
+                                         "array"
+                                         "map"
+                                         "set"
+                                         "dict"
+                                         "vector";
+        };
+
+        struct Selection
+        {
+            const std::string single = "single"
+                                       "one";
+            const std::string multiple = "multiple";
+            const std::string select = "select";
+            const std::string selection = "selection";
+            const std::string all = "all";
+            const std::string first = "first"
+                                      "1st";
+            const std::string last = "last";
+            const std::string next = "next";
+            const std::string previous = "previous"
+                                         "prev";
+            const std::string by_then = "by_then";
+            const std::string include = "contains"
+                                        "include"
+                                        "has";
+            const std::string exclude = "exclude"
+                                        "missing";
+            const std::string ascending = "ascending"
+                                          "asc";
+            const std::string descending = "descending"
+                                           "desc";
+        };
+
+        struct Node
+        {
+            const std::string node = "node"
+                                     "class"
+                                     "struct";
+            const std::string root = "root";
+            const std::string predecessor = "predecessor"
+                                            "parent";
+            const std::string ancestor = "ancestor";
+            const std::string successor = "successor"
+                                          "child";
+            const std::string descendant = "descendant";
+            const std::string sibling = "sibling";
+        };
+
+        struct Scope
+        {
+            const std::string external = "external"
+                                         "foreign";
+            const std::string internal = "inside"
+                                         "internal"
+                                         "local";
+            const std::string itself = "itself"
+                                       "self"
+                                       "this"
+                                       "current";
+        };
+
+        struct File
+        {
+            const std::string file = "file";
+            const std::string file_format = "file_format"
+                                            "filetype";
+            const std::string text = "text";
+            const std::string syntax = "syntax"
+                                       "code";
+        };
+
+        struct Media
+        {
+            const std::string image = "image"
+                                      "picture"
+                                      "photo"
+                                      "img";
+            const std::string video = "video"
+                                      "movie"
+                                      "clip";
+            const std::string audio = "audio"
+                                      "sound";
+            const std::string document = "document"
+                                         "doc"
+                                         "script";
+        };
+
+        struct Path
+        {
+            const std::string path = "path"
+                                     "location";
+        };
+
+        struct Markup
+        {
+            const std::string largest_text = "#"
+                                             "largest"
+                                             "largest_text";
+            const std::string large_text = "##"
+                                           "large"
+                                           "large_text";
+            const std::string medium_text = "###"
+                                            "medium"
+                                            "medium_text";
+            const std::string small_text = "####"
+                                           "small"
+                                           "small_text";
+            const std::string smaller_text = "#####"
+                                             "smaller"
+                                             "smaller_text";
+            const std::string smallest_text = "######"
+                                              "smallest"
+                                              "smallest_text";
+            const std::string bold = "**"
+                                     "bold";
+            const std::string italic = "*"
+                                       "italic";
+            const std::string underline = "_"
+                                          "underline";
+            const std::string strikethrough = "~~"
+                                              "strikethrough";
+        };
+
+        struct Diagram
+        {
+            const std::string graph = "graph";
+
+            const std::string table = "table";
+            const std::string list = "list";
+
+            const std::string socket = "socket";
+            const std::string connect = "connect";
+            const std::string source = "from"
+                                       "source";
+            const std::string destination = "to"
+                                            "recipient"
+                                            "target";
+            const std::string arrow = "arrow"
+                                      "->";
+            const std::string label = "label";
+
+            const std::string position = "position"
+                                         "pos"
+                                         "place";
+            const std::string top = "top";
+            const std::string left = "left";
+            const std::string right = "right";
+            const std::string bottom = "bottom"
+                                       "btm";
+            const std::string top_left = "top_left";
+            const std::string top_right = "top_right";
+            const std::string bottom_left = "bottom_left"
+                                            "btm_left";
+            const std::string bottom_right = "bottom_right"
+                                             "btm_right";
+        };
+
+        struct Styling
+        {
+            const std::string variant = "variant";
+            const std::string theme = "theme";
+            const std::string opacity = "opacity"
+                                        "transparency";
+            const std::string font = "font";
+            const std::string colour = "color";
+            const std::string size = "size";
+            const std::string background = "background"
+                                           "bg";
+            const std::string distance = "distance"
+                                         "spacing";
+
+            const std::string width = "width"
+                                      "w";
+            const std::string height = "height"
+                                       "h";
+        };
+
+        struct Database
+        {
+            const std::string query = "query";
+            const std::string insert = "insert";
+            const std::string update = "update";
+            const std::string delete_kw = "delete";
+            const std::string select = "select";
+            const std::string join = "join";
+            const std::string group_by = "groupBy";
+            const std::string order_by = "orderBy";
+            const std::string limit = "limit";
+        };
+
+        struct Language
+        {
+            const std::string html = "html";
+            const std::string css = "css";
+            const std::string javascript = "javascript"
+                                           "js";
+            const std::string cpp = "cpp"
+                                    "c++";
+            const std::string c = "c";
+            const std::string python = "python";
+            const std::string java = "java";
+            const std::string sql = "sql";
+            const std::string rust = "rust";
+            const std::string php = "php";
+            const std::string kotlin = "kotlin";
+            const std::string ruby = "ruby";
+            const std::string csharp = "csharp";
+            const std::string go = "go";
+            const std::string swift = "swift";
+        };
+        struct DateTime
+        {
+            const std::string format = "date_time_format";
+            const std::string date = "date";
+            const std::string time = "time";
+            const std::string now = "now";
+            const std::string from = "from";
+            const std::string until = "until";
+            const std::string duration = "duration"
+                                         "time_period";
+        };
+        struct Function
+        {
+
+            const std::string translate = "translate";
+            const std::string print = "print";
+            const std::string sort = "sort";
+            const std::string filter = "filter";
+
+            struct FileSystem
+            {
+                const std::string open = "open";
+                const std::string close = "close";
+                const std::string read = "read";
+                const std::string write = "write";
+                const std::string update = "update";
+                const std::string create = "create";
+                const std::string copy = "copy";
+                const std::string cut = "cut";
+                const std::string paste = "paste";
+                const std::string save = "save";
+                const std::string load = "load";
+                const std::string insert = "insert";
+                const std::string rename = "rename";
+                const std::string remove = "remove";
+                const std::string locate = "locate";
+                const std::string delete_kw = "delete";
+            };
+
+            struct Network
+            {
+                const std::string connect = "connect";
+                const std::string disconnect = "disconnect";
+                const std::string send = "send";
+                const std::string receive = "receive";
+                const std::string request = "request";
+                const std::string response = "respond";
+                const std::string upload = "upload";
+                const std::string download = "download";
+            };
+
+            struct String
+            {
+                const std::string split = "split";
+                const std::string join = "join";
+                const std::string replace = "replace";
+                const std::string trim = "trim";
+                const std::string to_upper = "to_upper";
+                const std::string to_lower = "to_lower";
+                const std::string substring = "substring";
+                const std::string index_of = "index_of";
+                const std::string last_index_of = "last_index_of";
+                const std::string contains = "contains";
+            };
             struct Math
             {
-
-                const std::string divide = "/";
-                const std::string minus = "-";
-                const std::string modulus = "%";
-                const std::string multiply = "*";
-                const std::string plus = "+";
-                const std::string equals = "=";
-            };
-
-            struct Operator
-            {
-
-                const std::string equals = "=";
-                const std::string not_equals = "!=";
-                const std::string greater_than = ">";
-                const std::string greater_than_or_equal_to = ">=";
-                const std::string less_than = "<";
-                const std::string less_than_or_equal_to = "<=";
-                const std::string logical_and = "&&";
-                const std::string logical_or = "||";
-            };
-
-            struct Path
-            {
-
-                const std::string tilde = "~";
-                const std::string dot = ".";
-                const std::string double_dot = "..";
-                const std::string slash = "/";
-                const std::string backslash = "\\";
+                const std::string add = "add";
+                const std::string subtract = "subtract";
+                const std::string multiply = "multiply";
+                const std::string divide = "divide";
+                const std::string modulus = "modulus";
+                const std::string power = "power";
+                const std::string square_root = "square_root";
+                const std::string absolute = "absolute";
+                const std::string round = "round";
+                const std::string floor = "floor";
+                const std::string ceil = "ceil";
             };
         };
     };
-};
-struct ForeginSyntax
-{
 
-    struct Markup
+    struct HTML
     {
 
-        struct HTML
-        {
-
-            const std::string doctype = "<!DOCTYPE html>";
-            const std::string html = "<html>";
-            const std::string head = "<head>";
-            const std::string title_open = "<title>";
-            const std::string title_close = "</title>";
-            const std::string meta = "<meta>";
-            const std::string link = "<link>";
-            const std::string style_open = "<style>";
-            const std::string style_close = "</style>";
-            const std::string script_open = "<script>";
-            const std::string script_close = "</script>";
-            const std::string noscript_open = "<noscript>";
-            const std::string noscript_close = "</noscript>";
-            const std::string head_close = "</head>";
-            const std::string body_open = "<body>";
-            const std::string header_open = "<header>";
-            const std::string header_close = "</header>";
-            const std::string nav_open = "<nav>";
-            const std::string nav_close = "</nav>";
-            const std::string main_open = "<main>";
-            const std::string main_close = "</main>";
-            const std::string section_open = "<section>";
-            const std::string section_close = "</section>";
-            const std::string article_open = "<article>";
-            const std::string article_close = "</article>";
-            const std::string aside_open = "<aside>";
-            const std::string aside_close = "</aside>";
-            const std::string footer_open = "<footer>";
-            const std::string footer_close = "</footer>";
-            const std::string h1_open = "<h1>";
-            const std::string h1_close = "</h1>";
-            const std::string h2_open = "<h2>";
-            const std::string h2_close = "</h2>";
-            const std::string h3_open = "<h3>";
-            const std::string h3_close = "</h3>";
-            const std::string h4_open = "<h4>";
-            const std::string h4_close = "</h4>";
-            const std::string h5_open = "<h5>";
-            const std::string h5_close = "</h5>";
-            const std::string h6_open = "<h6>";
-            const std::string h6_close = "</h6>";
-            const std::string p_open = "<p>";
-            const std::string p_close = "</p>";
-            const std::string br = "<br>";
-            const std::string hr = "<hr>";
-            const std::string pre_open = "<pre>";
-            const std::string pre_close = "</pre>";
-            const std::string blockquote_open = "<blockquote>";
-            const std::string blockquote_close = "</blockquote>";
-            const std::string ol_open = "<ol>";
-            const std::string ol_close = "</ol>";
-            const std::string ul_open = "<ul>";
-            const std::string ul_close = "</ul>";
-            const std::string li_open = "<li>";
-            const std::string li_close = "</li>";
-            const std::string dl_open = "<dl>";
-            const std::string dl_close = "</dl>";
-            const std::string dt_open = "<dt>";
-            const std::string dt_close = "</dt>";
-            const std::string dd_open = "<dd>";
-            const std::string dd_close = "</dd>";
-            const std::string a_open = "<a>";
-            const std::string a_close = "</a>";
-            const std::string img = "<img>";
-            const std::string iframe_open = "<iframe>";
-            const std::string iframe_close = "</iframe>";
-            const std::string embed_open = "<embed>";
-            const std::string embed_close = "</embed>";
-            const std::string object_open = "<object>";
-            const std::string object_close = "</object>";
-            const std::string param = "<param>";
-            const std::string video_open = "<video>";
-            const std::string video_close = "</video>";
-            const std::string audio_open = "<audio>";
-            const std::string audio_close = "</audio>";
-            const std::string source = "<source>";
-            const std::string track = "<track>";
-            const std::string canvas_open = "<canvas>";
-            const std::string canvas_close = "</canvas>";
-            const std::string svg_open = "<svg>";
-            const std::string svg_close = "</svg>";
-            const std::string math_open = "<math>";
-            const std::string math_close = "</math>";
-            const std::string table_open = "<table>";
-            const std::string table_close = "</table>";
-            const std::string caption = "<caption>";
-            const std::string thead_open = "<thead>";
-            const std::string thead_close = "</thead>";
-            const std::string tbody_open = "<tbody>";
-            const std::string tbody_close = "</tbody>";
-            const std::string tfoot_open = "<tfoot>";
-            const std::string tfoot_close = "</tfoot>";
-            const std::string tr_open = "<tr>";
-            const std::string tr_close = "</tr>";
-            const std::string th_open = "<th>";
-            const std::string th_close = "</th>";
-            const std::string td_open = "<td>";
-            const std::string td_close = "</td>";
-            const std::string form_open = "<form>";
-            const std::string form_close = "</form>";
-            const std::string input = "<input>";
-            const std::string textarea_open = "<textarea>";
-            const std::string textarea_close = "</textarea>";
-            const std::string button_open = "<button>";
-            const std::string button_close = "</button>";
-            const std::string select_open = "<select>";
-            const std::string select_close = "</select>";
-            const std::string option_open = "<option>";
-            const std::string option_close = "</option>";
-            const std::string optgroup_open = "<optgroup>";
-            const std::string optgroup_close = "</optgroup>";
-            const std::string label = "<label>";
-            const std::string fieldset_open = "<fieldset>";
-            const std::string fieldset_close = "</fieldset>";
-            const std::string legend = "<legend>";
-            const std::string datalist = "<datalist>";
-            const std::string output = "<output>";
-            const std::string progress = "<progress>";
-            const std::string meter = "<meter>";
-            const std::string details_open = "<details>";
-            const std::string details_close = "</details>";
-            const std::string summary = "<summary>";
-            const std::string dialog = "<dialog>";
-            const std::string template_open = "<template>";
-            const std::string template_close = "</template>";
-            const std::string slot = "<slot>";
-        };
-        struct Markdown
-        {
-
-            const std::string h1 = "# ";
-            const std::string h2 = "## ";
-            const std::string h3 = "### ";
-            const std::string h4 = "#### ";
-            const std::string h5 = "##### ";
-            const std::string h6 = "###### ";
-            const std::string italic = "*";
-            const std::string bold = "**";
-            const std::string bold_italic = "***";
-            const std::string strikethrough = "~~";
-            const std::string inline_code = "`";
-            const std::string code_block = "```";
-            const std::string blockquote = "> ";
-            const std::string unordered_list = "- ";
-            const std::string ordered_list = "1. ";
-            const std::string link_open = "[";
-            const std::string link_middle = "](";
-            const std::string link_close = ")";
-            const std::string image_open = "![";
-            const std::string image_middle = "](";
-            const std::string image_close = ")";
-            const std::string horizontal_rule = "---";
-            const std::string table_column_separator = "|";
-            const std::string line_break = "\n";
-        };
+        const std::string doctype = "<!DOCTYPE html>";
+        const std::string html = "<html>";
+        const std::string head = "<head>";
+        const std::string title_open = "<title>";
+        const std::string title_close = "</title>";
+        const std::string meta = "<meta>";
+        const std::string link = "<link>";
+        const std::string style_open = "<style>";
+        const std::string style_close = "</style>";
+        const std::string script_open = "<script>";
+        const std::string script_close = "</script>";
+        const std::string noscript_open = "<noscript>";
+        const std::string noscript_close = "</noscript>";
+        const std::string head_close = "</head>";
+        const std::string body_open = "<body>";
+        const std::string header_open = "<header>";
+        const std::string header_close = "</header>";
+        const std::string nav_open = "<nav>";
+        const std::string nav_close = "</nav>";
+        const std::string main_open = "<main>";
+        const std::string main_close = "</main>";
+        const std::string section_open = "<section>";
+        const std::string section_close = "</section>";
+        const std::string article_open = "<article>";
+        const std::string article_close = "</article>";
+        const std::string aside_open = "<aside>";
+        const std::string aside_close = "</aside>";
+        const std::string footer_open = "<footer>";
+        const std::string footer_close = "</footer>";
+        const std::string h1_open = "<h1>";
+        const std::string h1_close = "</h1>";
+        const std::string h2_open = "<h2>";
+        const std::string h2_close = "</h2>";
+        const std::string h3_open = "<h3>";
+        const std::string h3_close = "</h3>";
+        const std::string h4_open = "<h4>";
+        const std::string h4_close = "</h4>";
+        const std::string h5_open = "<h5>";
+        const std::string h5_close = "</h5>";
+        const std::string h6_open = "<h6>";
+        const std::string h6_close = "</h6>";
+        const std::string p_open = "<p>";
+        const std::string p_close = "</p>";
+        const std::string br = "<br>";
+        const std::string hr = "<hr>";
+        const std::string pre_open = "<pre>";
+        const std::string pre_close = "</pre>";
+        const std::string blockquote_open = "<blockquote>";
+        const std::string blockquote_close = "</blockquote>";
+        const std::string ol_open = "<ol>";
+        const std::string ol_close = "</ol>";
+        const std::string ul_open = "<ul>";
+        const std::string ul_close = "</ul>";
+        const std::string li_open = "<li>";
+        const std::string li_close = "</li>";
+        const std::string dl_open = "<dl>";
+        const std::string dl_close = "</dl>";
+        const std::string dt_open = "<dt>";
+        const std::string dt_close = "</dt>";
+        const std::string dd_open = "<dd>";
+        const std::string dd_close = "</dd>";
+        const std::string a_open = "<a>";
+        const std::string a_close = "</a>";
+        const std::string img = "<img>";
+        const std::string iframe_open = "<iframe>";
+        const std::string iframe_close = "</iframe>";
+        const std::string embed_open = "<embed>";
+        const std::string embed_close = "</embed>";
+        const std::string object_open = "<object>";
+        const std::string object_close = "</object>";
+        const std::string param = "<param>";
+        const std::string video_open = "<video>";
+        const std::string video_close = "</video>";
+        const std::string audio_open = "<audio>";
+        const std::string audio_close = "</audio>";
+        const std::string source = "<source>";
+        const std::string track = "<track>";
+        const std::string canvas_open = "<canvas>";
+        const std::string canvas_close = "</canvas>";
+        const std::string svg_open = "<svg>";
+        const std::string svg_close = "</svg>";
+        const std::string math_open = "<math>";
+        const std::string math_close = "</math>";
+        const std::string table_open = "<table>";
+        const std::string table_close = "</table>";
+        const std::string caption = "<caption>";
+        const std::string thead_open = "<thead>";
+        const std::string thead_close = "</thead>";
+        const std::string tbody_open = "<tbody>";
+        const std::string tbody_close = "</tbody>";
+        const std::string tfoot_open = "<tfoot>";
+        const std::string tfoot_close = "</tfoot>";
+        const std::string tr_open = "<tr>";
+        const std::string tr_close = "</tr>";
+        const std::string th_open = "<th>";
+        const std::string th_close = "</th>";
+        const std::string td_open = "<td>";
+        const std::string td_close = "</td>";
+        const std::string form_open = "<form>";
+        const std::string form_close = "</form>";
+        const std::string input = "<input>";
+        const std::string textarea_open = "<textarea>";
+        const std::string textarea_close = "</textarea>";
+        const std::string button_open = "<button>";
+        const std::string button_close = "</button>";
+        const std::string select_open = "<select>";
+        const std::string select_close = "</select>";
+        const std::string option_open = "<option>";
+        const std::string option_close = "</option>";
+        const std::string optgroup_open = "<optgroup>";
+        const std::string optgroup_close = "</optgroup>";
+        const std::string label = "<label>";
+        const std::string fieldset_open = "<fieldset>";
+        const std::string fieldset_close = "</fieldset>";
+        const std::string legend = "<legend>";
+        const std::string datalist = "<datalist>";
+        const std::string output = "<output>";
+        const std::string progress = "<progress>";
+        const std::string meter = "<meter>";
+        const std::string details_open = "<details>";
+        const std::string details_close = "</details>";
+        const std::string summary = "<summary>";
+        const std::string dialog = "<dialog>";
+        const std::string template_open = "<template>";
+        const std::string template_close = "</template>";
+        const std::string slot = "<slot>";
     };
-    struct Style
+    struct Markdown
     {
 
-        struct CSS
-        {
+        const std::string h1 = "# ";
+        const std::string h2 = "## ";
+        const std::string h3 = "### ";
+        const std::string h4 = "#### ";
+        const std::string h5 = "##### ";
+        const std::string h6 = "###### ";
+        const std::string italic = "*";
+        const std::string bold = "**";
+        const std::string bold_italic = "***";
+        const std::string strikethrough = "~~";
+        const std::string code_block = "```";
+        const std::string blockquote = "> ";
+        const std::string unordered_list = "- ";
+        const std::string ordered_list = "1. ";
+        const std::string link_open = "[";
+        const std::string link_middle = "](";
+        const std::string link_close = ")";
+        const std::string image_open = "![";
+        const std::string image_middle = "](";
+        const std::string image_close = ")";
+        const std::string horizontal_rule = "---";
+        const std::string table_column_separator = "|";
+        const std::string line_break = "\n";
+    };
 
-            const std::string color;
-            const std::string background_color;
-            const std::string font_size;
-            const std::string font_family;
-            const std::string margin;
-            const std::string padding;
-            const std::string border;
-            const std::string width;
-            const std::string height;
-            const std::string display;
-            const std::string position;
-            const std::string top;
-            const std::string left;
-            const std::string right;
-            const std::string bottom;
-            const std::string z_index;
-            const std::string overflow;
-            const std::string text_align;
-            const std::string vertical_align;
-            const std::string line_height;
-            const std::string box_shadow;
-            const std::string border_radius;
-            const std::string opacity;
-            const std::string visibility;
-            const std::string cursor;
-            const std::string transition;
-            const std::string transform;
-            const std::string content;
-            const std::string clip_path;
-            const std::string animation;
-            const std::string keyframes;
-        };
+    struct CSS
+    {
+
+        const std::string color;
+        const std::string background_color;
+        const std::string font_size;
+        const std::string font_family;
+        const std::string margin;
+        const std::string padding;
+        const std::string border;
+        const std::string width;
+        const std::string height;
+        const std::string display;
+        const std::string position;
+        const std::string top;
+        const std::string left;
+        const std::string right;
+        const std::string bottom;
+        const std::string z_index;
+        const std::string overflow;
+        const std::string text_align;
+        const std::string vertical_align;
+        const std::string line_height;
+        const std::string box_shadow;
+        const std::string border_radius;
+        const std::string opacity;
+        const std::string visibility;
+        const std::string cursor;
+        const std::string transition;
+        const std::string transform;
+        const std::string content;
+        const std::string clip_path;
+        const std::string animation;
+        const std::string keyframes;
+    };
+
+    struct SQL
+    {
+        const std::string select = "SELECT";
+        const std::string from = "FROM";
+        const std::string where = "WHERE";
+        const std::string insert = "INSERT";
+        const std::string into = "INTO";
+        const std::string values = "VALUES";
+        const std::string update = "UPDATE";
+        const std::string set = "SET";
+        const std::string delete_kw = "DELETE";
+        const std::string create = "CREATE";
+        const std::string table = "TABLE";
+        const std::string drop = "DROP";
+        const std::string alter = "ALTER";
+        const std::string add = "ADD";
+        const std::string remove = "REMOVE";
+        const std::string join = "JOIN";
+        const std::string inner_join = "INNER JOIN";
+        const std::string left_join = "LEFT JOIN";
+        const std::string right_join = "RIGHT JOIN";
+        const std::string full_join = "FULL JOIN";
+        const std::string group_by = "GROUP BY";
+        const std::string order_by = "ORDER BY";
+        const std::string having = "HAVING";
+        const std::string distinct = "DISTINCT";
+        const std::string limit = "LIMIT";
+        const std::string offset = "OFFSET";
+        const std::string union_kw = "UNION";
+        const std::string union_all = "UNION ALL";
+        const std::string intersect = "INTERSECT";
+        const std::string except = "EXCEPT";
+        const std::string case_kw = "CASE";
+        const std::string when = "WHEN";
+        const std::string then = "THEN";
+        const std::string else_kw = "ELSE";
+        const std::string end = "END";
+        const std::string as = "AS";
+        const std::string on = "ON";
+        const std::string in = "IN";
+        const std::string not_in = "NOT IN";
+        const std::string is_null = "IS NULL";
+        const std::string is_not_null = "IS NOT NULL";
+        const std::string like = "LIKE";
+        const std::string not_like = "NOT LIKE";
+        const std::string between = "BETWEEN";
+        const std::string not_between = "NOT BETWEEN";
+        const std::string and_kw = "AND";
+        const std::string or_kw = "OR";
+        const std::string not_kw = "NOT";
+        const std::string exists = "EXISTS";
+        const std::string not_exists = "NOT EXISTS";
+        const std::string any = "ANY";
+        const std::string all = "ALL";
+        const std::string asc = "ASC";
+        const std::string desc = "DESC";
+        const std::string primary_key = "PRIMARY KEY";
+        const std::string foreign_key = "FOREIGN KEY";
+        const std::string references = "REFERENCES";
+        const std::string check = "CHECK";
+        const std::string unique = "UNIQUE";
+        const std::string default_kw = "DEFAULT";
+        const std::string index = "INDEX";
+        const std::string view = "VIEW";
+        const std::string trigger = "TRIGGER";
+        const std::string procedure = "PROCEDURE";
+        const std::string function = "FUNCTION";
+        const std::string cursor = "CURSOR";
+        const std::string declare = "DECLARE";
+        const std::string fetch = "FETCH";
+        const std::string open = "OPEN";
+        const std::string close = "CLOSE";
+        const std::string begin = "BEGIN";
+        const std::string commit = "COMMIT";
+        const std::string rollback = "ROLLBACK";
+        const std::string savepoint = "SAVEPOINT";
+        const std::string release = "RELEASE";
+        const std::string transaction = "TRANSACTION";
     };
     struct C
     {
@@ -1400,4 +1656,12 @@ struct ForeginSyntax
         const std::string kw_false = "false";
         const std::string kw_nil = "nil";
     };
+};
+
+struct Transpiler : public Syntax
+{
+};
+
+struct Interpreter : public Transpiler
+{
 };
