@@ -44,24 +44,17 @@ struct License
         const std::string open_source = "Open Source";
     };
 };
+
 struct Syntax
 {
     struct MPS
     {
-        struct Link
-        {
-            const std::string link = "http://"
-                                     "www."
-                                     "https://"
-                                     "ftp://"
-                                     "mailto:"
-                                     "file://"
-                                     "url://";
-            const std::string reference = "ref"
-                                          "reference"
-                                          "refer"
-                                          "@";
-        };
+
+        const std::string translate = "translate";
+        const std::string print = "print";
+        const std::string sort = "sort";
+        const std::string filter = "filter";
+
         struct Symbol
         {
             const std::string delivery = "-->";
@@ -94,7 +87,20 @@ struct Syntax
             const std::string double_quote = "\"";
             const std::string code_block = "```";
         };
-
+        struct Link
+        {
+            const std::string link = "http://"
+                                     "www."
+                                     "https://"
+                                     "ftp://"
+                                     "mailto:"
+                                     "file://"
+                                     "url://";
+            const std::string reference = "ref"
+                                          "reference"
+                                          "refer"
+                                          "@";
+        };
         struct Context
         {
             const std::string active = "ACTIVE"
@@ -199,10 +205,10 @@ struct Syntax
             const std::string return_value = "return"
                                              "export";
             const std::string activate = "activate"
-                                            "enable"
-                                            "run"
-                                            "start"
-                                            "execute";
+                                         "enable"
+                                         "run"
+                                         "start"
+                                         "execute";
             const std::string receive = "receive";
             const std::string request = "request";
             const std::string respond = "respond";
@@ -374,88 +380,80 @@ struct Syntax
             const std::string duration = "duration"
                                          "time_period";
         };
-        struct Function
+
+        struct Generate
         {
+            const std::string generate_random = "generate_random";
+            const std::string generate_license = "generate_license";
+            const std::string generate_hash = "generate_hash";
+            const std::string generate_name = "generate_name";
+            const std::string generate_uuid = "generate_uuid";
+        };
+        struct FileSystem
+        {
+            const std::string open = "open";
+            const std::string close = "close";
+            const std::string read = "read";
+            const std::string write = "write";
+            const std::string update = "update";
+            const std::string create = "create";
+            const std::string copy = "copy";
+            const std::string cut = "cut";
+            const std::string paste = "paste";
+            const std::string save = "save";
+            const std::string load = "load";
+            const std::string insert = "insert";
+            const std::string rename = "rename";
+            const std::string remove = "remove";
+            const std::string locate = "locate";
+            const std::string delete_kw = "delete";
+        };
 
-            const std::string translate = "translate";
-            const std::string print = "print";
-            const std::string sort = "sort";
-            const std::string filter = "filter";
+        struct Network
+        {
+            const std::string connect = "connect";
+            const std::string disconnect = "disconnect";
+            const std::string send = "send";
+            const std::string receive = "receive";
+            const std::string request = "request";
+            const std::string response = "respond";
+            const std::string upload = "upload";
+            const std::string download = "download";
+        };
 
-            struct Generate
-            {
-                const std::string generate_random = "generate_random";
-                const std::string generate_license = "generate_license";
-                const std::string generate_hash = "generate_hash";
-                const std::string generate_name = "generate_name";
-                const std::string generate_uuid = "generate_uuid";
-            };
-            struct FileSystem
-            {
-                const std::string open = "open";
-                const std::string close = "close";
-                const std::string read = "read";
-                const std::string write = "write";
-                const std::string update = "update";
-                const std::string create = "create";
-                const std::string copy = "copy";
-                const std::string cut = "cut";
-                const std::string paste = "paste";
-                const std::string save = "save";
-                const std::string load = "load";
-                const std::string insert = "insert";
-                const std::string rename = "rename";
-                const std::string remove = "remove";
-                const std::string locate = "locate";
-                const std::string delete_kw = "delete";
-            };
-
-            struct Network
-            {
-                const std::string connect = "connect";
-                const std::string disconnect = "disconnect";
-                const std::string send = "send";
-                const std::string receive = "receive";
-                const std::string request = "request";
-                const std::string response = "respond";
-                const std::string upload = "upload";
-                const std::string download = "download";
-            };
-
-            struct String
-            {
-                const std::string split = "split";
-                const std::string join = "join";
-                const std::string replace = "replace";
-                const std::string trim = "trim";
-                const std::string to_upper = "to_upper";
-                const std::string to_lower = "to_lower";
-                const std::string substring = "substring";
-                const std::string index_of = "index_of";
-                const std::string last_index_of = "last_index_of";
-                const std::string contains = "contains";
-            };
-            struct Math
-            {
-                const std::string add = "add";
-                const std::string subtract = "subtract";
-                const std::string multiply = "multiply";
-                const std::string divide = "divide";
-                const std::string modulus = "modulus";
-                const std::string power = "power";
-                const std::string square_root = "square_root";
-                const std::string absolute = "absolute";
-                const std::string round = "round";
-                const std::string floor = "floor";
-                const std::string ceil = "ceil";
-            };
-            struct Time
-            {
-                const std::string sleep = "sleep";
-                const std::string wait = "wait";
-                const std::string delay = "delay";
-                const std::string timer = "timer";
-            };
+        struct String
+        {
+            const std::string split = "split";
+            const std::string join = "join";
+            const std::string replace = "replace";
+            const std::string trim = "trim";
+            const std::string to_upper = "to_upper";
+            const std::string to_lower = "to_lower";
+            const std::string substring = "substring";
+            const std::string index_of = "index_of";
+            const std::string last_index_of = "last_index_of";
+            const std::string contains = "contains";
+        };
+        struct Math
+        {
+            const std::string add = "add";
+            const std::string subtract = "subtract";
+            const std::string multiply = "multiply";
+            const std::string divide = "divide";
+            const std::string modulus = "modulus";
+            const std::string power = "power";
+            const std::string square_root = "square_root";
+            const std::string absolute = "absolute";
+            const std::string round = "round";
+            const std::string floor = "floor";
+            const std::string ceil = "ceil";
+        };
+        struct Time
+        {
+            const std::string sleep = "sleep";
+            const std::string wait = "wait";
+            const std::string delay = "delay";
+            const std::string timer = "timer";
         };
     };
 
@@ -1693,12 +1691,4 @@ struct Syntax
         const std::string kw_false = "false";
         const std::string kw_nil = "nil";
     };
-};
-
-struct Transpiler : public Syntax
-{
-};
-
-struct Interpreter : public Transpiler
-{
 };
