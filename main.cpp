@@ -1658,7 +1658,7 @@ struct SyntaxDefenition
     };
 };
 
-struct Transpiler : public Syntax
+struct Transpiler : public SyntaxDefenition
 {
 };
 
