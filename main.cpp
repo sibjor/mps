@@ -44,9 +44,9 @@ struct License
         const std::string open_source = "Open Source";
     };
 };
-struct SyntaxDefenition
+struct Syntax
 {
-    struct MUPUS
+    struct MPS
     {
         struct Link
         {
@@ -198,13 +198,11 @@ struct SyntaxDefenition
         {
             const std::string return_value = "return"
                                              "export";
-            const std::string action = "action"
-                                       "act";
-            const std::string execute = "execute"
-                                        "run";
-            const std::string perform = "perform";
-            const std::string apply = "apply";
-            const std::string send = "send";
+            const std::string activate = "activate"
+                                            "enable"
+                                            "run"
+                                            "start"
+                                            "execute";
             const std::string receive = "receive";
             const std::string request = "request";
             const std::string respond = "respond";
@@ -1697,7 +1695,7 @@ struct SyntaxDefenition
     };
 };
 
-struct Transpiler : public SyntaxDefenition
+struct Transpiler : public Syntax
 {
 };
 
