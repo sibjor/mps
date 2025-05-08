@@ -12,9 +12,10 @@
 
 struct MUPUS
 {
-
     struct License
     {
+        const std::string license_head = "LICENSE";
+        const std::string filename = "LICENSE";
         const std::string copyright_notice = "Copyright (c) 2025 " + Author().name + "\n";
         
         struct Author
@@ -34,6 +35,11 @@ struct MUPUS
             static const std::string website;
             static const std::string github_user_name;
             static const std::string license;
+        };
+
+        struct LicenseType
+        {
+            const std::string open_source = "Open Source";
         };
     };
 
