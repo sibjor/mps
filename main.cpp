@@ -12,31 +12,43 @@
 
 class MUPUS
 {
-    struct Parties
+public:
+    class License
     {
-        struct Author
+    public:
+        const std::string copyright_notice = "Copyright (c) 2025 " + Author().name + "\n";
+        class Author
         {
+        public:
             const std::string name = "Sixten Björling";
-            const std::string contact = "sixten@sibjor.se";
+            const std::string email = "sixten@sibjor.se";
             const std::string website = "https://sibjor.se";
-            const std::string github = "sibjor";
+            const std::string github_user_name = "sibjor";
         };
-        struct Developer
+
+        class Licensor
         {
+        public:
             static const std::string name;
             static const std::string email;
-            static const std::string github;
+            static const std::string website;
+            static const std::string github_user_name;
+            static const std::string license;
         };
     };
 
-    struct Syntax
+    class Syntax
     {
-        struct Symbols
+    public:
+        class Symbols
         {
+        public:
             const std::string ampersand = "&";
             const std::string asterisk = "*";
             const std::string at = "@";
             const std::string blankspace = " ";
+            const std::string slash = "/";
+            const std::string backslash = "\\";
             const std::string comment = "//";
             const std::string comment_block_close = "*/";
             const std::string comment_block_open = "/*";
@@ -47,9 +59,22 @@ class MUPUS
             const std::string newline_syntax = "\n";
             const std::string percent = "%";
             const std::string question = "?";
+            const std::string semicolon = ";";
+            const std::string dot = ".";
+            const std::string colon = ":";
+            const std::string comma = ",";
+            const std::string open_brace = "{";
+            const std::string close_brace = "public:}";
+            const std::string open_bracket = "[";
+            const std::string close_bracket = "]";
+            const std::string open_parenthesis = "(";
+            const std::string close_parenthesis = ")";
+            const std::string single_quote = "'";
+            const std::string double_quote = "\"";
 
-            struct Math
+            class Math
             {
+            public:
                 const std::string divide = "/";
                 const std::string minus = "-";
                 const std::string modulus = "%";
@@ -57,8 +82,9 @@ class MUPUS
                 const std::string plus = "+";
             };
 
-            struct Operator
+            class Operator
             {
+            public:
                 const std::string equals = "=";
                 const std::string not_equals = "!=";
                 const std::string greater_than = ">";
@@ -68,19 +94,33 @@ class MUPUS
                 const std::string logical_and = "&&";
                 const std::string logical_or = "||";
             };
+
+            class Path
+            {
+            public:
+                const std::string tilde = "~";
+                const std::string dot = ".";
+                const std::string double_dot = "..";
+                const std::string slash = "/";
+                const std::string backslash = "\\";
+            };
         };
 
-        struct License
+        class License
         {
+        public:
             const std::string begin_license = "LICENSE\n";
         };
     };
-    struct ForeginSyntax
+    class ForeginSyntax
     {
-        struct Markup
+    public:
+        class Markup
         {
-            struct HTML
+        public:
+            class HTML
             {
+            public:
                 const std::string doctype = "<!DOCTYPE html>";
                 const std::string html = "<html>";
                 const std::string head = "<head>";
@@ -208,8 +248,9 @@ class MUPUS
                 const std::string template_close = "</template>";
                 const std::string slot = "<slot>";
             };
-            struct Markdown
+            class Markdown
             {
+            public:
                 const std::string h1 = "# ";
                 const std::string h2 = "## ";
                 const std::string h3 = "### ";
@@ -236,10 +277,12 @@ class MUPUS
                 const std::string line_break = "\n";
             };
         };
-        struct Style
+        class Style
         {
-            struct CSS
+        public:
+            class CSS
             {
+            public:
                 const std::string color;
                 const std::string background_color;
                 const std::string font_size;
@@ -273,11 +316,12 @@ class MUPUS
                 const std::string keyframes;
             };
         };
-        struct C
+        class C
         {
+        public:
             const std::string semicolon = ";";
             const std::string open_brace = "{";
-            const std::string close_brace = "}";
+            const std::string close_brace = "public:}";
             const std::string open_parenthesis = "(";
             const std::string close_parenthesis = ")";
             const std::string open_bracket = "[";
@@ -337,7 +381,7 @@ class MUPUS
             const std::string kw_signed = "signed";
             const std::string kw_sizeof = "sizeof";
             const std::string kw_static = "static";
-            const std::string kw_struct = "struct";
+            const std::string kw_class = "class";
             const std::string kw_switch = "switch";
             const std::string kw_typedef = "typedef";
             const std::string kw_union = "union";
@@ -356,11 +400,128 @@ class MUPUS
             const std::string kw_static_assert = "_Static_assert";
             const std::string kw_thread_local = "_Thread_local";
         };
-        struct CPP
+        class CPP
         {
+        public:
+            const std::string semicolon = ";";
+            const std::string open_brace = "{";
+            const std::string close_brace = "}";
+            const std::string open_parenthesis = "(";
+            const std::string close_parenthesis = ")";
+            const std::string open_bracket = "[";
+            const std::string close_bracket = "]";
+            const std::string comma = ",";
+            const std::string dot = ".";
+            const std::string colon = ":";
+            const std::string double_colon = "::";
+            const std::string question_mark = "?";
+            const std::string exclamation_mark = "!";
+            const std::string ampersand = "&";
+            const std::string vertical_bar = "|";
+            const std::string caret = "^";
+            const std::string tilde = "~";
+            const std::string plus = "+";
+            const std::string minus = "-";
+            const std::string asterisk = "*";
+            const std::string slash = "/";
+            const std::string percent = "%";
+            const std::string equals = "=";
+            const std::string less_than = "<";
+            const std::string greater_than = ">";
+            const std::string logical_and = "&&";
+            const std::string logical_or = "||";
+            const std::string equal_to = "==";
+            const std::string not_equal_to = "!=";
+            const std::string less_than_or_equal_to = "<=";
+            const std::string greater_than_or_equal_to = ">=";
+            const std::string increment = "++";
+            const std::string decrement = "--";
+            const std::string arrow = "->";
+            const std::string ellipsis = "...";
+
+            const std::string kw_alignas = "alignas";
+            const std::string kw_alignof = "alignof";
+            const std::string kw_asm = "asm";
+            const std::string kw_auto = "auto";
+            const std::string kw_bool = "bool";
+            const std::string kw_break = "break";
+            const std::string kw_case = "case";
+            const std::string kw_catch = "catch";
+            const std::string kw_char = "char";
+            const std::string kw_char8_t = "char8_t";
+            const std::string kw_char16_t = "char16_t";
+            const std::string kw_char32_t = "char32_t";
+            const std::string kw_class = "class";
+            const std::string kw_const = "const";
+            const std::string kw_consteval = "consteval";
+            const std::string kw_constexpr = "constexpr";
+            const std::string kw_constinit = "constinit";
+            const std::string kw_continue = "continue";
+            const std::string kw_co_await = "co_await";
+            const std::string kw_co_return = "co_return";
+            const std::string kw_co_yield = "co_yield";
+            const std::string kw_decltype = "decltype";
+            const std::string kw_default = "default";
+            const std::string kw_delete = "delete";
+            const std::string kw_do = "do";
+            const std::string kw_double = "double";
+            const std::string kw_dynamic_cast = "dynamic_cast";
+            const std::string kw_else = "else";
+            const std::string kw_enum = "enum";
+            const std::string kw_explicit = "explicit";
+            const std::string kw_export = "export";
+            const std::string kw_extern = "extern";
+            const std::string kw_false = "false";
+            const std::string kw_float = "float";
+            const std::string kw_for = "for";
+            const std::string kw_friend = "friend";
+            const std::string kw_goto = "goto";
+            const std::string kw_if = "if";
+            const std::string kw_inline = "inline";
+            const std::string kw_int = "int";
+            const std::string kw_long = "long";
+            const std::string kw_mutable = "mutable";
+            const std::string kw_namespace = "namespace";
+            const std::string kw_new = "new";
+            const std::string kw_noexcept = "noexcept";
+            const std::string kw_nullptr = "nullptr";
+            const std::string kw_operator = "operator";
+            const std::string kw_private = "private";
+            const std::string kw_protected = "protected";
+            const std::string kw_public = "public";
+            const std::string kw_register = "register";
+            const std::string kw_reinterpret_cast = "reinterpret_cast";
+            const std::string kw_requires = "requires";
+            const std::string kw_return = "return";
+            const std::string kw_short = "short";
+            const std::string kw_signed = "signed";
+            const std::string kw_sizeof = "sizeof";
+            const std::string kw_static = "static";
+            const std::string kw_static_assert = "static_assert";
+            const std::string kw_static_cast = "static_cast";
+            const std::string kw_struct = "struct";
+            const std::string kw_switch = "switch";
+            const std::string kw_template = "template";
+            const std::string kw_this = "this";
+            const std::string kw_thread_local = "thread_local";
+            const std::string kw_throw = "throw";
+            const std::string kw_true = "true";
+            const std::string kw_try = "try";
+            const std::string kw_typedef = "typedef";
+            const std::string kw_typeid = "typeid";
+            const std::string kw_typename = "typename";
+            const std::string kw_union = "union";
+            const std::string kw_unsigned = "unsigned";
+            const std::string kw_using = "using";
+            const std::string kw_virtual = "virtual";
+            const std::string kw_void = "void";
+            const std::string kw_volatile = "volatile";
+            const std::string kw_wchar_t = "wchar_t";
+            const std::string kw_while = "while";
         };
-        struct JavaScript
+        class JavaScript
         {
+        public:
             const std::string var = "var";
             const std::string let = "let";
             const std::string const_kw = "const";
@@ -382,7 +543,7 @@ class MUPUS
             const std::string throw_kw = "throw";
             const std::string class_kw = "class";
             const std::string extends_kw = "extends";
-            const std::string constructor_kw = "constructor";
+            const std::string conclassor_kw = "conclassor";
             const std::string super_kw = "super";
             const std::string this_kw = "this";
             const std::string new_kw = "new";
@@ -500,8 +661,9 @@ class MUPUS
             const std::string any_func = "any";
             const std::string allSettled_func = "allSettled";
         };
-        struct TypeScript
+        class TypeScript
         {
+        public:
             const std::string let = "let";
             const std::string const_kw = "const";
             const std::string var = "var";
@@ -523,7 +685,7 @@ class MUPUS
             const std::string throw_kw = "throw";
             const std::string class_kw = "class";
             const std::string extends_kw = "extends";
-            const std::string constructor_kw = "constructor";
+            const std::string conclassor_kw = "conclassor";
             const std::string super_kw = "super";
             const std::string this_kw = "this";
             const std::string new_kw = "new";
@@ -662,8 +824,9 @@ class MUPUS
             const std::string any_func = "any";
             const std::string allSettled_func = "allSettled";
         };
-        struct Java
+        class Java
         {
+        public:
             const std::string kw_abstract = "abstract";
             const std::string kw_assert = "assert";
             const std::string kw_boolean = "boolean";
@@ -725,8 +888,9 @@ class MUPUS
             const std::string kw_permits = "permits";
             const std::string kw_non_sealed = "non-sealed";
         };
-        struct CSharp
+        class CSharp
         {
+        public:
             const std::string kw_abstract = "abstract";
             const std::string kw_as = "as";
             const std::string kw_base = "base";
@@ -787,7 +951,7 @@ class MUPUS
             const std::string kw_stackalloc = "stackalloc";
             const std::string kw_static = "static";
             const std::string kw_string = "string";
-            const std::string kw_struct = "struct";
+            const std::string kw_class = "class";
             const std::string kw_switch = "switch";
             const std::string kw_this = "this";
             const std::string kw_throw = "throw";
@@ -835,15 +999,16 @@ class MUPUS
             const std::string kw_ascending = "ascending";
             const std::string kw_descending = "descending";
         };
-        struct Go
+        class Go
         {
+        public:
             const std::string kw_package = "package";
             const std::string kw_import = "import";
             const std::string kw_func = "func";
             const std::string kw_var = "var";
             const std::string kw_const = "const";
             const std::string kw_type = "type";
-            const std::string kw_struct = "struct";
+            const std::string kw_class = "class";
             const std::string kw_interface = "interface";
             const std::string kw_map = "map";
             const std::string kw_chan = "chan";
@@ -865,14 +1030,15 @@ class MUPUS
             const std::string kw_true = "true";
             const std::string kw_false = "false";
         };
-        struct Rust
+        class Rust
         {
+        public:
             const std::string kw_fn = "fn";
             const std::string kw_let = "let";
             const std::string kw_mut = "mut";
             const std::string kw_const = "const";
             const std::string kw_static = "static";
-            const std::string kw_struct = "struct";
+            const std::string kw_class = "class";
             const std::string kw_enum = "enum";
             const std::string kw_impl = "impl";
             const std::string kw_trait = "trait";
@@ -898,8 +1064,9 @@ class MUPUS
             const std::string kw_true = "true";
             const std::string kw_false = "false";
         };
-        struct PHP
+        class PHP
         {
+        public:
             const std::string kw_php_open = "<?php";
             const std::string kw_php_close = "?>";
             const std::string kw_echo = "echo";
@@ -931,8 +1098,9 @@ class MUPUS
             const std::string kw_false = "false";
             const std::string kw_null = "null";
         };
-        struct Python
+        class Python
         {
+        public:
             const std::string def = "def";
             const std::string return_kw = "return";
             const std::string if_kw = "if";
@@ -1032,8 +1200,9 @@ class MUPUS
             const std::string callable_func = "callable";
             const std::string del_func = "del";
         };
-        struct Kotlin
+        class Kotlin
         {
+        public:
             const std::string kw_fun = "fun";
             const std::string kw_val = "val";
             const std::string kw_var = "var";
@@ -1056,8 +1225,9 @@ class MUPUS
             const std::string kw_false = "false";
             const std::string kw_null = "null";
         };
-        struct Ruby
+        class Ruby
         {
+        public:
             const std::string kw_def = "def";
             const std::string kw_end = "end";
             const std::string kw_class = "class";
@@ -1081,13 +1251,14 @@ class MUPUS
             const std::string kw_false = "false";
             const std::string kw_nil = "nil";
         };
-        struct Swift
+        class Swift
         {
+        public:
             const std::string kw_func = "func";
             const std::string kw_let = "let";
             const std::string kw_var = "var";
             const std::string kw_class = "class";
-            const std::string kw_struct = "struct";
+            const std::string kw_class = "class";
             const std::string kw_enum = "enum";
             const std::string kw_protocol = "protocol";
             const std::string kw_extension = "extension";
